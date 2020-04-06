@@ -1,0 +1,37 @@
+<html>
+  <body>
+    <div class="row">
+    {% for studnet in students %}
+      <div class="cell">
+        {{student}}
+    </div>
+    {% if loop.index / 3 == 0 %}
+    </div>
+    <div class="row">
+    {% endif %}
+    {% if loop.index / 30 == 0 %}
+    </div>
+    <div class="pagebreak"> </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </body>
+  <style>
+    .cell{
+      float: left;
+      width: 33.33%;
+      height:26.7mm;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    @media print {
+      .pagebreak{
+         clear: both;
+         page-break-after; always;
+      }
+    }
+  </style>
+</html>
