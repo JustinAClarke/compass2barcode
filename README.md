@@ -6,13 +6,13 @@ Note: this is using the SussiId as the barcode text.
 
 
 ## Install
-Python 3
-[wkhtmltopdf](http://wkhtmltopdf.org/)
+ * Python 3
+ * [wkhtmltopdf](http://wkhtmltopdf.org/)
 
 ### python-pip
-python-barcode
-jinja2
-pdfkit
+ * python-barcode
+ * jinja2
+ * pdfkit
 
 # Running the scripts
 1. Place the file with the student export into the current working directory
