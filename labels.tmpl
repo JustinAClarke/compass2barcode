@@ -8,13 +8,13 @@
         <img src="{{student.SussiId}}.svg" />
 
     </div>
-    {% if loop.index / 3 == 0 %}
+    {% if loop.index % 3 == 0 %}
     </div>
     <div class="row">
     {% endif %}
-    {% if loop.index / 30 == 0 %}
+    {% if loop.index % 30 == 0 %}
     </div>
-    <div class="pagebreak"> </div>
+    <div class="pagebreak"><hr></div>
     {% endif %}
     {% endfor %}
     </div>

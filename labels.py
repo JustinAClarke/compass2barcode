@@ -1,3 +1,6 @@
+#Compass Student Export to Seperate CSV for Barcode creation. Library Use
+# Justin Clarke <justin@dev.justinclarke.me>
+
 import jinja2
 import barcode
 import pdfkit
