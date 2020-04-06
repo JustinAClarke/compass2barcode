@@ -42,7 +42,7 @@ for row in datareader:
 for staff in datalist:
     labels.gen_barcode(staff["SussiId"], staff["SussiId"])
 
-html_file = labels.gen_html('staff', datalist)
+html_file = labels.gen_html('staff', datalist, 'staff.tmpl')
 labels.gen_pdf(html_file,"staff.pdf".format(datalist) )
 #for staff in datalist:
 '''

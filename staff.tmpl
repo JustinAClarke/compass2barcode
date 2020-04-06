@@ -8,13 +8,15 @@
         <img src="{{student.SussiId}}.svg" />
 
     </div>
-    {% if loop.index % 3 == 0 %}
+    {% if loop.index % 2 == 0 %}
     </div>
     <div class="row">
     {% endif %}
-    {% if loop.index % 30 == 0 %}
+    {% if loop.index % 24 == 0 %}
     </div>
-    <div class="pagebreak"><hr></div>
+    <hr>
+    <div class="pagebreak"></div>
+    <div class="row">
     {% endif %}
     {% endfor %}
     </div>
@@ -22,7 +24,7 @@
   <style>
     .cell{
       float: left;
-      width: 33.33%;
+      width: 50.00%;
       height:26.7mm;
     }
     .row:after {
@@ -30,15 +32,15 @@
       display: table;
       clear: both;
     }
-    @media print {
+
       img{
         max-width: 100%;
         height: auto;
       }
       .pagebreak{
          clear: both;
-         page-break-after: always;
+         page-break-before: always;
       }
-    }
+
   </style>
 </html>

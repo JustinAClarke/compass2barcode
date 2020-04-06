@@ -19,15 +19,15 @@ def gen_barcode(user,barcode_str):
     filename = code128.save('tmp{}{}'.format(os.path.sep,user))
 
 #generate html file for each class
-def gen_html(class_name, class_list):
+def gen_html(class_name, class_list, template_file = 'labels.tmpl'):
     try:
         os.mkdir('tmp')
     except FileExistsError as e:
         pass
     templateLoader = jinja2.FileSystemLoader(searchpath='./')
     templateEnv = jinja2.Environment(loader=templateLoader)
-    TEMPLATE_FILE = 'labels.tmpl'
-    template = templateEnv.get_template(TEMPLATE_FILE)
+
+    template = templateEnv.get_template(template_file)
 
     outputText = template.render(students = class_list)
     out_file = "tmp{}{}.html".format(os.path.sep,class_name)
