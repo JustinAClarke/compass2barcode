@@ -17,7 +17,7 @@ for data in datalist:
     print(data)
 '''
 
-inFile = 'file.csv'
+inFile = 'staff.csv'
 #inFile = $1
 
 import os
@@ -32,38 +32,20 @@ headers = next(datareader)
 datalist=[]
 forms = {}
 
-classForms = {}
+
 for row in datareader:
     data={}
     for i in range(len(headers)):
         data[headers[i]] = row[i]
+    datalist.append(data)
 
-    #attempt to add the student into the specified FormGroup, or creates the FormGroup
-    try:
-        classForms[data['FormGroup']].append(data)
-    except KeyError as e:
-        classForms[data['FormGroup']] = []
-        classForms[data['FormGroup']].append(data)
+for staff in datalist:
+    labels.gen_barcode(staff["SussiId"], staff["SussiId"])
 
-    #adds the FormGroup into a list, for use later
-    forms[data['FormGroup']]=data['FormGroup']
-
-#for each FormGroup, create a seperate CSV.
-try:
-    os.mkdir('out')
-except FileExistsError as e:
-    pass
-
-for form, students in classForms.items():
-    outFile = "out{}{}.csv".format(os.path.sep,form)
-    print(outFile)
-    #create file for FormGroup
-    with open(outFile, 'w', newline='\n') as csvFile:
-        writer = csv.DictWriter(csvFile, fieldnames=headers, quoting=csv.QUOTE_ALL)
-        writer.writeheader()
-        for student in students:
-            writer.writerow(student)
-
+html_file = labels.gen_html('staff', datalist)
+labels.gen_pdf(html_file,"staff.pdf".format(datalist) )
+#for staff in datalist:
+'''
             #create barcodes
             labels.gen_barcode(student["SussiId"], student["SussiId"])
 
@@ -78,3 +60,4 @@ for form, students in classForms.items():
 
 #print(classForms['Prep J'])
 #print(classForms)
+'''

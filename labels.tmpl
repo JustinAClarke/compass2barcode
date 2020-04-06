@@ -1,9 +1,12 @@
 <html>
   <body>
     <div class="row">
-    {% for studnet in students %}
+    {% for student in students %}
       <div class="cell">
-        {{student}}
+        {{student.Title}} {{student.FirstName}} {{student.Surname}}
+        <br>
+        <img src="{{student.SussiId}}.svg" />
+
     </div>
     {% if loop.index / 3 == 0 %}
     </div>

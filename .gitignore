@@ -1,2 +1,6 @@
 file.csv
-./out/*
+staff.csv
+out/*
+tmp/*
+*.pdf
+__pycache__/*
